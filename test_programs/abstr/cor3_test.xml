@@ -1,1 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><?xml-stylesheet type="text/xsl" href="./abstr.xsl"?><abstr><node label="BinExpr" spec="ADD"><node label="AtomExpr" lexeme="1" spec="INT"><location loc="1.2--1.2"/></node><node label="AtomExpr" lexeme="1" spec="INT"><location loc="1.4--1.4"/></node><location loc="1.1--1.5"/></node></abstr>
