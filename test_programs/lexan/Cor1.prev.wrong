@@ -1,10 +1,10 @@
    none while true false null     	
 #coment none
  #
-  '  strin~ g '''  '   ''' 'a'
+ # '  strin~ g '''  '   ''' 'a'
 #empty
-''
-'while'
+#''
+#'while'
 +123 
 -123#one number
 1234567890
