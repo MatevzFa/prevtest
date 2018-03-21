@@ -35,12 +35,17 @@ def compile_test(phase, test):
     if not os.path.exists("test_results/" + phase):
         os.makedirs("test_results/" + phase)
 
+    if not os.path.isfile("test_results/%s/%s.xsl" % (phase, phase)):
+        shutil.copy(
+            "%s/data/%s.xsl" % (PREV_HOME, phase),
+            "test_results/%s/%s.xsl" % (phase, phase)
+        )
+
     os.chdir(OUT)
     output = subprocess.check_output([
         "java",
         "compiler.Main",
-        "--xml=../%s/%s/%s.xml" % ("test_results",
-                                   phase, test),
+        "--xml=../%s/%s/%s.xml" % ("test_results", phase, test),
         "--xsl=./",
         "--target-phase=%s" % phase,
         "--logged-phase=%s" % phase,
