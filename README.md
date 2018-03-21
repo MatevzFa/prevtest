@@ -15,8 +15,8 @@ To install Python dependencies, run `pip install -r requirements.txt`.
 
 ## Usage
 
-The script accepts one argument, which specifies which phase you want to test.
+The script accepts two arguments. The first one specifies the phase to test, the second one can be used to only run matching tests.
 
 ```
-./prevtest.py <PHASE>
+./prevtest.py <PHASE> [<FILTER>]
 ```
