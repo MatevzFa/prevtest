@@ -1,11 +1,11 @@
 {
-	1+1;
-	a = 1;
-	if a == 3 then b = 2 else b = 3 end;
-	while b == 2 do 
-		b = 3;
-		c = 4
-	end
-	:
-	none
+    1+1;
+    a = 1;
+    if a == 3 then b = 2 else b = 3 end;
+    while b == 2 do 
+        b = 3;
+        c = 4
+    end
+    :
+    none
 }

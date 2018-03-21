@@ -1,5 +1,5 @@
 # if checking is not persistent the lexer should terminate at ['/t']
                                             # invalid character [/t] inside char literal
-' ' '~' 'a' '	'
+' ' '~' 'a' '    '
 # invalid non ASCII character
     ŽČŠ

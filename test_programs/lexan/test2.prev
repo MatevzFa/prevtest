@@ -1,6 +1,6 @@
 # check white spaces and different variants of comments and identifiers - pass
         #!_>
-#	#	#1Var	#~
+#    #    #1Var    #~
 # identifiers - pass
 i
 ___3asd
@@ -13,4 +13,4 @@ CONST_VAR
 # const int 1 and identifier a
 1a
 # before end of file two tabs - pass
-		
+        

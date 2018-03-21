@@ -1,9 +1,9 @@
 {
-	if asd < 3 then
-		while asd < 5 do
-			asd = asd + 2
-		end
-	end
-	
-	: aaaaaaa
+    if asd < 3 then
+        while asd < 5 do
+            asd = asd + 2
+        end
+    end
+    
+    : aaaaaaa
 }

@@ -1,8 +1,8 @@
 {
-	none
-	:
-	none
-	where
-		# type expected
-		var a:ptr {
+    none
+    :
+    none
+    where
+        # type expected
+        var a:ptr {
 }

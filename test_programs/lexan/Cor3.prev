@@ -4,7 +4,7 @@ Kappa
 
 
 arr bool 
-    char 	del do else end fun if int new ptr rec then 
+    char     del do else end fun if int new ptr rec then 
 
 
 
