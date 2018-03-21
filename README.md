@@ -2,7 +2,7 @@
 
 ## Installation
 
-Clone this repository into a folder next ot your `prev` folder.
+Clone this repository into a folder next to your `prev` folder.
 ```
 ...
 ├── prev
