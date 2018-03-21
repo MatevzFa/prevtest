@@ -6,6 +6,7 @@ import os
 import sys
 import glob
 import subprocess
+import re
 
 import colorama
 from colorama import Fore
@@ -77,11 +78,16 @@ def run_test(phase, test, indent=0):
               (test, Fore.RED + "FAIL" + Fore.RESET))
 
 
-def test_phase(phase, filter=None):
+def test_phase(phase, filt=None):
     print("---")
     print("Testing phase %s" % phase)
+    if filt != None:
+        pattern = re.compile(".*" + filt + ".*")
+    else:
+        pattern = re.compile(".*")
     for file in sorted(glob.glob("test_programs/%s/*.prev" % (phase))):
-        run_test(phase, basename(os.path.basename(file)), indent=4)
+        if pattern.match(file):
+            run_test(phase, basename(os.path.basename(file)), indent=4)
 
 
 def build():
@@ -100,4 +106,11 @@ def build():
 
 
 build()
-test_phase(sys.argv[1])
+
+phase = sys.argv[1]
+if len(sys.argv) > 2:
+    filt = sys.argv[2]
+else:
+    filt = None
+
+test_phase(sys.argv[1], filt)
