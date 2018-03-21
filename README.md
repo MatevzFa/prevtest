@@ -1,6 +1,6 @@
 
 
-### **Disclaimer: I do not guarantee that any of the tests programs or their XMLs located in [`test_programs`](/test_programs) are correct. Always check your results and please report any errors [here](/issues).**
+### **Disclaimer: I do not guarantee that any of the tests programs or their XMLs located in [`test_programs`](/test_programs) are correct. Always check your results and please report any errors [here](https://github.com/MatevzFa/prevtest/issues).**
 
 # PREVTEST
 
