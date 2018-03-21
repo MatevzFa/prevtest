@@ -80,7 +80,7 @@ def run_test(phase, test, indent=0):
 def test_phase(phase, filter=None):
     print("---")
     print("Testing phase %s" % phase)
-    for file in glob.glob("test_programs/%s/*.prev" % (phase)):
+    for file in sorted(glob.glob("test_programs/%s/*.prev" % (phase))):
         run_test(phase, basename(os.path.basename(file)), indent=4)
 
 
