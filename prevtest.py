@@ -17,6 +17,8 @@ TEST_HOME = os.path.abspath(os.curdir)
 OUT = TEST_HOME + "/out"
 SRCS = PREV_HOME + "/srcs"
 
+OK_MSG = ":-) This is PREV compiler:\n:-) Done.\n"
+
 
 def basename(path):
     return os.path.splitext(path)[0]
@@ -59,11 +61,7 @@ def check_test(phase, test):
     return True
 
 
-OK_MSG = ":-) This is PREV compiler:\n:-) Done.\n"
-
-
 def run_test(phase, test, indent=0):
-
     output = compile_test(phase, test).decode("unicode_escape")
     correct = check_test(phase, test)
 
@@ -102,5 +100,4 @@ def build():
 
 
 build()
-
 test_phase(sys.argv[1])
