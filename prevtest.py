@@ -81,8 +81,9 @@ def test_phase(phase, filt=None):
     print("---")
     print("Testing phase %s" % phase)
     for file in sorted(glob.glob("test_programs/%s/*.prev" % (phase))):
+        file = basename(os.path.basename(file))
         if filt == None or filt in file:
-            run_test(phase, basename(os.path.basename(file)), indent=4)
+            run_test(phase, file, indent=4)
 
 
 def build():
