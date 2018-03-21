@@ -1,0 +1,13 @@
+funccall(({
+    a+b
+    : 0 where var a: char
+}) + ({
+    a+b
+    : 0 where var a: bool
+}) + ({
+    a+b
+    : 0 where var a: void
+}) == ({
+    a+b
+    : 0 where var a: int
+}), arg2, arg3, arg4)

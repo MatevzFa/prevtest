@@ -1,0 +1,8 @@
+# check symbols without space in between - pass
+fun fib(n:int):int
+
+# check boundary values for char literals - pass
+''' '~' '0''a''z''A''Z'' '
+''''''
+# check signed int literals - pass
++12 -1 +23 99+1

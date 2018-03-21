@@ -1,0 +1,21 @@
+
+# void, pointer and bool literals
+none true false null
+
+# char literals
+' ' 'k' 'K' '4'
+
+# int literals
+24234
+1236
+-7673
++5367
+
+# symbols
+! | ^ & == != <= >= < > + - * / % $ @ = . , : ; [ ] ( ) { }
+
+# keywords
+arr bool char del do else end fun if int new ptr rec then typ var void where while
+
+# identifiers
+Tha_Namba_42 _N2o jumbo j3t _if doelse

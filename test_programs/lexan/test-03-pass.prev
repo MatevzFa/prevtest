@@ -1,0 +1,209 @@
+
+Skip to content
+This repository
+
+    Pull requests
+    Issues
+    Marketplace
+    Explore
+
+    @pintarj
+
+4
+0
+
+    0
+
+pintarj/mm-project-2
+Code
+Issues 0
+Pull requests 0
+Projects 0
+Wiki
+Insights
+Settings
+mm-project-2/genetski.m
+0067f12 on Jun 8, 2017
+@lukakolar lukakolar Fix hevrF and possibility that that species go extinct
+@LanaBesevic
+@lukakolar
+179 lines (173 sloc) 4.85 KB
+function [newA, newB, newx0] = genetski(A, b, x0)
+# Genetski algoritem, ki zdruzuje podane matrike in vektorje ter jih
+# razvrsti po kakovosti
+# A ... matrika matrik, ki jih zdruzujemo (ze razvrscene po kakovosti)
+# b ... matrika vektorjev, ki jih zdruzujemo (ze razvrsceni po kakovosti)
+# newA ... seznam osebkov/matrik po zdruzevanju
+
+s = length(A);
+n = size(A, 1);
+minPop = 1;
+maxPop = 10;
+
+# zdruzujemo najboljse matrike
+m = s/2+1;
+newA = A(:,:,1:s/2);
+newB = b(:,1:s/2);
+newx0 = x0(:,1:s/2);
+mut = 0.015;    # verjetnost mutacije elementa
+prva = s/5;     # kolikokrat zdruzimo prvo in drugo matriko ter vektor
+druga = s/10;   # kolikokrat zdruzimo drugo in tretjo matriko ter vektor
+
+# prvo in drugo najboljso matriko ter vektor zdruzimo s/5-krat
+for i = m : m+prva-1
+    for j = 1 : n
+        for k = 1 : n
+            # zdruzevanje matrik
+            #if k == j
+            if A(k,j,i) == 0
+                continue
+            end
+            w = rand(1,1);
+            if w < 0.5-mut
+                newA(k,j,m) = A(k,j,1);
+            elseif w > 0.5+mut
+                newA(k,j,m) = A(k,j,2);
+            else
+                # mutacija (pazimo da predznak ostane enak)
+                if A(k,j,1) == 0
+                    newA(k,j,m) = 0;
+                elseif A(k,j,1) < 0
+                    newA(k,j,m) = -rand;
+                else
+                    newA(k,j,m) = rand;
+                end
+            end
+        end
+        # zdruzevanje vektorjev
+        w = rand(1,1);
+        if w < 0.5-(mut*n)
+            newB(j,m) = b(j,1);
+            newx0(j,m) = x0(j,1);
+        elseif w > 0.5+(mut*n)
+            newB(j,m) = b(j,2);
+            newx0(j,m) = x0(j,2);
+        else
+            # mutacija
+            newx0(j,m) = unifrnd(minPop, maxPop);
+            if b(k,j,1) == 0
+                newB(j,m) = 0;
+            elseif b(j,1) < 0
+                newB(j,m) = -rand;
+            else
+                newB(j,m) = rand;
+            end
+        end
+    end
+    m = m+1;
+end
+
+# drugo in tretjo najboljso matriko ter vektor zdruzimo s/10-krat
+for i = m : m+druga-1
+    for j = 1 : n
+        for k = 1 : n
+            # zdruzevanje matrik
+            #if k == j
+            if A(k,j,i) == 0
+                continue
+            end
+            w = rand(1,1);
+            if w < 0.5-mut
+                newA(k,j,m) = A(k,j,2);
+            elseif w > 0.5+mut
+                newA(k,j,m) = A(k,j,3);
+            else
+                # mutacija
+                if A(k,j,1) == 0
+                    newA(k,j,m) = 0;
+                elseif A(k,j,1) < 0
+                    newA(k,j,m) = -rand;
+                else
+                    newA(k,j,m) = rand;
+                end
+            end
+        end
+        # zdruzevanje vektorjev
+        w = rand(1,1);
+        if w < 0.5-(mut*n)
+            newB(j,m) = b(j,2);
+            newx0(j,m) = x0(j,2);
+        elseif w > 0.5+(mut*n)
+            newB(j,m) = b(j,3);
+            newx0(j,m) = x0(j,3);
+        else
+            # mutacija
+            newx0(j,m) = unifrnd(minPop, maxPop);
+            if b(j,1) == 0
+                newB(j,m) = 0;
+            elseif b(j,1) < 0
+                newB(j,m) = -rand;
+            else
+                newB(j,m) = rand;
+            end
+        end
+    end
+    m = m+1;
+end
+
+# ostale matrike in vektorje zdruzujemo po enkrat dokler ne dobimo vseh s
+# matrik in vektojev
+i = 3;
+while m <= s
+    for j = 1 : n
+        for k = 1 : n
+            # zdruzevanje matrik
+            #if k == j
+            if A(k,j,i) == 0
+                continue
+            end
+            w = rand(1,1);
+            if w < 0.5-mut
+                newA(k,j,m) = A(k,j,i);
+            elseif w > 0.5+mut
+                newA(k,j,m) = A(k,j,i+1);
+            else
+                # mutacija
+                if A(k,j,1) == 0
+                    newA(k,j,m) = 0;
+                elseif A(k,j,1) < 0
+                    newA(k,j,m) = -rand;
+                else
+                    newA(k,j,m) = rand;
+                end
+            end
+        end
+        # zdruzevanje vektorjev
+        w = rand(1,1);
+        if w < 0.5-(mut*n)
+            newB(j,m) = b(j,i);
+            newx0(j,m) = x0(j,i);
+        elseif w > 0.5+(mut*n)
+            newB(j,m) = b(j,i+1);
+            newx0(j,m) = x0(j,i+1);
+        else
+            # mutacija
+            newx0(j,m) = unifrnd(minPop, maxPop);
+            if b(j,1) == 0
+                newB(j,m) = 0;
+            elseif b(j,1) < 0
+                newB(j,m) = -rand;
+            else
+                newB(j,m) = rand;
+            end
+        end
+    end
+    m = m+1;
+    i = i+1;
+end
+
+# razvrstimo matrike in vektorje od najboljsega do najslabsega
+R = zeros(s,1);
+for i = 1 : s
+    # dolocimo "kakovost" generirane matrike
+    R(i) = hevrF(newA(:,:,i), newB(:, i), newx0(:, i));
+end
+[sortedR,IX] = sort(R, 'd''e''s''c''e''n''d'); # lahko tudi 'descend', odvisno kako morajo biti matrike razvrscene
+newA = newA(:,:,IX);
+newB = newB(:, IX);
+newx0 = newx0(:, IX);
+end

@@ -1,0 +1,20 @@
+# stmts expected
+#{}
+
+# another statement or : expected
+#{ null
+
+# another statement expected
+#{ null = null; a = 1;
+
+# expression expected
+#{ null : ]
+
+# where or } expected
+#{ null : 1 :
+
+# declaration expected
+#{ null : 1 where }
+
+# declaration expected
+{ null : 1 where var a:int;}

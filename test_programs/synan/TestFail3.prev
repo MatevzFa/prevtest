@@ -1,0 +1,2 @@
+# [3.34--3.35] statement instead of expressions - fail
+{while bea do something(true); {(if a then b else true end) : none} end : false}

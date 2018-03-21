@@ -1,0 +1,19 @@
+{
+	# expr expected
+	#if arr
+	
+	# then expected
+	#if a=1 
+	
+	# stmt expected
+	#if a==1 then ;
+
+	# else or end expected
+	#if a==1 then a=1 :
+
+	# same with several stmts
+	#if a==1 then a=1; b=2; c=3 :
+	
+	# end expected 
+	if a==1 then a=1; b=2; c=3 else null
+}

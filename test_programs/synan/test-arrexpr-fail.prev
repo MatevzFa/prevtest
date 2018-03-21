@@ -1,0 +1,5 @@
+# expression expected
+#a[}
+
+# ]  expected
+a[10}

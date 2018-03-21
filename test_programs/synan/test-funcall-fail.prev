@@ -1,0 +1,8 @@
+# ) or expression expected
+#f(:)
+
+# expression expected
+#f(a, b, }
+
+# , or ) expected
+f(a, b }

@@ -1,0 +1,13 @@
+{
+f(5);
+result : none
+where
+    var result:int;
+    fun f(n:int):int =
+    {
+        if n == 1
+        then result = n
+        else result = n * f(n-1)
+        end : none
+    }
+}

@@ -1,0 +1,6 @@
+{
+    a == b # no semicolon ==> end the statements part of a compound expression
+    a = 3  # but there's another expression
+
+    : (a + b) == 12
+}

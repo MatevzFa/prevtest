@@ -1,0 +1,4 @@
+# int literals - pass
++12 -1 +23 99+1
+# unknown character '~' after identifier k - fail
+    i j k~

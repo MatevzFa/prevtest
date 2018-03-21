@@ -1,0 +1,7 @@
+{
+	stmt1;
+	stmt2;
+	stmt3_with_extra_semicolon;
+	
+	: asd
+}

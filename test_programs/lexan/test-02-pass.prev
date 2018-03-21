@@ -1,0 +1,24 @@
+
+if janez == arr char[]{'p''r''i''d''e''n'} then:
+    print(4+5*11);
+else
+    # komentar
+    int fige = 444;
+    fige = fige / 222;
+
+fun bool je_to(bool x, bool y):
+    z = new bool
+    z = x ^ y | true & !false
+    z = z & (4 < -2) | (12 >= 4) & (11 <= +99) & (+'p''u''t''i''n' > -'p''u''t''o''u''t');
+    rec ui = @z
+    z = none
+    del z
+
+    typ where (ui == false)
+        return null
+    else
+        while true == false do nothing;
+        return var $ui
+        end
+
+# koncni komentar

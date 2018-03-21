@@ -1,0 +1,8 @@
+# type expected
+#[10
+
+# ] expected
+#[int}
+
+# expression expected
+[int] }

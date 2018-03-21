@@ -1,0 +1,11 @@
+
+# check all literals - pass
+none    true   false
+null    'a'    1234
+
+# check all keywords - pass
+arr bool char del do else end fun if int new ptr rec then typ var void where while
+
+# check all symbols - pass
+!|^&<>+-*/%$@=.,:;[](){}
+!! ++ <= >= != ==

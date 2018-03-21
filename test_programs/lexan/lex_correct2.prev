@@ -1,0 +1,38 @@
+arr bool char del do else end fun if int new ptr rec then typ var void where while
+:::::::
+! | ^ & == != <= >= < > + - * / % $ @ = . , : ; [ ] ( ) { }
+:::::::
+!==                      !!=|#some comment
+=!
+=!<<=$@... ,, ;123'c'arr123123123 123123arr
+
+
+arr arra = 123;
+b = 321;
+if (a == b) {
+    #add
+    a + b
+}
+
+arr 2a = 123;
+==
+arr 2 a = 123;
+
+_3
+
+                        #comment
+#
+#
+# comment213123123
+#
+#
+                                           #
+                                             #############################
+                     ###                            #/////////
+                   $$@@$$#
+%|/[]{}()#
+
+func main() {
+
+    0
+}

@@ -1,0 +1,2 @@
+# test precedence of operators |,*,+,==, order and element/component access - pass
+1 | 2 * 3 + 3 == [int]a.b + c[1]

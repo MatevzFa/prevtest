@@ -1,0 +1,7 @@
+{
+    a == b;
+    a = 3;
+    b = 6; # semicolon after the last statement (another statement expected)
+
+    : (a + b) == 12
+}

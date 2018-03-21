@@ -1,0 +1,12 @@
+{
+    if a == (b == c) then
+        ok().message
+    end;
+
+    if (a < b < c) then
+        this ^ here = nonassociative
+    end 
+    
+    : false
+
+}

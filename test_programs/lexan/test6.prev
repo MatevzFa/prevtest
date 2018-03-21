@@ -1,0 +1,6 @@
+# if checking is not persistent the lexer should terminate at 'Z' with caron
+varPass = false
+# non ASCII character inside commentŽ - fail
+
+# not closed char literal before EOF - fail
+'a

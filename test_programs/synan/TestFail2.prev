@@ -1,0 +1,8 @@
+{
+[ptr ptr b] f(del a%2).a;
+while true do
+    new arr[9/3] a
+end         # [6.1--6.1] before next statement should be ';' - fail
+b = [int]b
+: none
+}

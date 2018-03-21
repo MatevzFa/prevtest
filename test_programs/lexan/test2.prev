@@ -1,0 +1,16 @@
+# check white spaces and different variants of comments and identifiers - pass
+        #!_>
+#	#	#1Var	#~
+# identifiers - pass
+i
+___3asd
+_1
+false1
+delfun
+funVar
+whileNone
+CONST_VAR
+# const int 1 and identifier a
+1a
+# before end of file two tabs - pass
+		

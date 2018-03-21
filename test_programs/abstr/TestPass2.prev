@@ -1,0 +1,7 @@
+{
+if a | 2 * !b >= @c[1|2]
+then [void]a - ![int]b end
+: printf(pass)
+where typ v: bool
+}
+

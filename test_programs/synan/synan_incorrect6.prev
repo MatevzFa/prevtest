@@ -1,0 +1,9 @@
+{
+    a
+
+    : a
+
+    where
+        # missing function name
+        fun (a: int, b: int): int = a + b
+}

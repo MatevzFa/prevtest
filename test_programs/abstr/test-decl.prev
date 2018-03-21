@@ -1,0 +1,20 @@
+{
+	none
+	:
+	none
+	where
+		typ a : arr [50] int;
+		var b : rec (
+					a:void,
+					b:bool,
+					c:char,
+					d:int,
+					e:arr [100] rec( a:ptr int, b:AbsExpr),
+					f:rec(
+						good_member_name:some_custom_type_name,
+						another_member_name:another_custom_type_name),
+					g:ptr bool,
+					h:another_custom_type_name);
+		fun c(array:arr [10] int, record: rec(x:int, y:int)):int =1+1;
+		fun d(arg1:void, arg2:ptr void):void
+}
