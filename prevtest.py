@@ -80,9 +80,9 @@ def test_phase(phase, filt=None):
     print("---")
     print("Testing phase %s" % phase)
     for file in sorted(glob.glob("test_programs/%s/*.prev" % (phase))):
-        file = basename(os.path.basename(file))
-        if filt == None or filt in file:
-            run_test(phase, file, indent=4)
+        test = basename(os.path.basename(file))
+        if (filt == None or filt in test) and os.path.isfile(basename(file) + ".xml"):
+            run_test(phase, test, indent=4)
 
 
 def build():
