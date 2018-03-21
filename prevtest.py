@@ -53,12 +53,11 @@ def compile_test(phase, test):
 
 
 def check_test(phase, test):
-    # ref_file = open("test_programs/%s/%s.xml" % (phase, test), "r")
-    # result_file = open("test_results/%s/%s.xml" % (phase, test), "r")
-    # diff = difflib.ndiff(ref_file.readlines(), result_file.readlines())
-    # diffs = list(filter(lambda line: line[0] == "-", diff))
-    # return len(diffs) == 0
-    return True
+    ref_file = open("test_programs/%s/%s.xml" % (phase, test), "r")
+    result_file = open("test_results/%s/%s.xml" % (phase, test), "r")
+    diff = difflib.ndiff(ref_file.readlines(), result_file.readlines())
+    diffs = list(filter(lambda line: line[0] == "-", diff))
+    return len(diffs) == 0
 
 
 def run_test(phase, test, indent=0):
