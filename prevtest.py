@@ -17,7 +17,7 @@ TEST_HOME = os.path.abspath(os.curdir)
 OUT = TEST_HOME + "/out"
 SRCS = PREV_HOME + "/srcs"
 
-OK_MSG = ":-) This is PREV compiler:\n:-) Done.\n"
+OK_MSG = ":-) This is PREV compiler:" + os.linesep + ":-) Done." + os.linesep
 
 
 def basename(path):
