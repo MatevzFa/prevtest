@@ -7,7 +7,7 @@
             a = c + b + d : a + i + f() + g()
 
             where
-                #typ a: int;
+                #typ a: int; # to more crashat z location v 7.13
                 var i: int;
                 fun f(): int = {
                     none : f()
