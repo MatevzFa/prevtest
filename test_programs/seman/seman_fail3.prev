@@ -1,0 +1,6 @@
+{
+    0
+    : 0
+    where
+        var a: integer # type 'integer' is undefined
+}

@@ -65,20 +65,36 @@ def check_test(phase, test):
     return len(diffs) == 0
 
 
+def test_should_fail(test):
+    return "fail" in test.lower()
+
+
+def print_test_result(test, color, message, indent=0):
+    print(indent*" " + "%-25s %5s" % (test, color + message + Fore.RESET))
+
+
 def run_test(phase, test, indent=0):
     output = compile_test(phase, test).decode("unicode_escape")
-    correct = check_test(phase, test)
+    compile_ok = output == OK_MSG
+    fail_test = test_should_fail(test)
 
-    if output != OK_MSG:
-        print(indent*" " + "%-25s %5s" %
-              (test, Fore.RED + "COMPILATION ERROR" + Fore.RESET))
+    if compile_ok and fail_test:
+        print_test_result(test, Fore.RED, "ERROR UNDETECTED", indent)
+        return
+    if not compile_ok and not fail_test:
+        print_test_result(test, Fore.RED, "COMPILATION ERROR", indent)
         print(output)
-    elif correct:
-        print(indent*" " + "%-25s %5s" %
-              (test, Fore.GREEN + "OK" + Fore.RESET))
-    else:
-        print(indent*" " + "%-25s %5s" %
-              (test, Fore.RED + "FAIL" + Fore.RESET))
+        return
+
+    # Check that XML is correct only in case it has actually compiled
+    if compile_ok:
+        correct_xml = check_test(phase, test)
+        if not correct_xml:
+            print_test_result(test, Fore.RED, "WRONG XML", indent)
+            return
+
+    # Every check passed
+    print_test_result(test, Fore.GREEN, "OK", indent)
 
 
 def test_phase(phase, filt=None):
@@ -86,7 +102,7 @@ def test_phase(phase, filt=None):
     print("Testing phase %s" % phase)
     for file in sorted(glob.glob("test_programs/%s/*.prev" % (phase))):
         test = basename(os.path.basename(file))
-        if (filt == None or filt in test) and os.path.isfile(basename(file) + ".xml"):
+        if (filt == None or filt in test):
             run_test(phase, test, indent=4)
 
 
