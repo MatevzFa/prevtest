@@ -1,0 +1,7 @@
+{
+    a() # Wrong use, a should be a variable
+    : b
+    where
+        var a: int;
+        var b: int
+}

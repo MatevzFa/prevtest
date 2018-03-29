@@ -1,0 +1,6 @@
+{
+    0
+    : 0
+    where
+        fun a(): integer # Using undeclared name of type as function type
+}
