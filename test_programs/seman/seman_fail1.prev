@@ -1,0 +1,16 @@
+{
+    none : f()
+
+    where
+
+        typ a: int;
+        typ b: a;
+        typ c: b;
+        typ d: c;
+
+        typ x: y;
+        typ y: x; # fail: circular typedef
+
+        fun f(): int = g();
+        fun g(): int = f()
+}

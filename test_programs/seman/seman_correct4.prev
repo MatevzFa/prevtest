@@ -1,0 +1,11 @@
+{
+    none : a[0] + i
+
+    where
+
+        var a: arr[100] int;
+
+        typ t1: int;
+
+        var i: t1
+}

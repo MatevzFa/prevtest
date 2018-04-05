@@ -1,0 +1,9 @@
+{
+    none : f(new record)
+
+    where
+
+        typ record: rec(a: int, b: int);
+
+        fun f(x: ptr record): int = (@x).doesntexist + (@x).doesntexist
+}

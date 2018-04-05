@@ -1,0 +1,8 @@
+{
+    none : 1
+
+    where
+
+        # fail: double declaration of component a
+        typ record: rec(a: int, b: int, a: int)
+}

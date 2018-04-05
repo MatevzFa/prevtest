@@ -1,0 +1,13 @@
+{
+    none : 1
+
+    where
+
+        typ arr1: arr [123 * 444 + 4124 - -4124 * 5%2144 /123] int;
+
+        var a: int;
+
+        # fail: arr length must be constant
+        typ arr2: arr [a * 10] int
+
+}

@@ -1,0 +1,8 @@
+{
+    none : a.a
+
+    where
+
+        # fail: double declaration of component a
+        var a: rec(a: int, a: int)
+}
