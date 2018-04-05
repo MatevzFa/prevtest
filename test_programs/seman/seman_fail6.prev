@@ -1,0 +1,8 @@
+{
+
+    none : 1
+
+    where
+
+        typ list: rec(val: int, next: list)
+}
