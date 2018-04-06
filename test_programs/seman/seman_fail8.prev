@@ -1,0 +1,1 @@
+{ none : 1 where typ intarr: arr[256 - 16*16] int }

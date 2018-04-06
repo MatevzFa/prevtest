@@ -1,0 +1,7 @@
+{
+    none : 1
+
+    where
+
+        typ a: arr [10] a
+}
