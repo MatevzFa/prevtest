@@ -1,7 +1,0 @@
-{
-    none : 1
-
-    where
-
-        typ a: ptr a
-}
