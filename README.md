@@ -15,15 +15,22 @@ Clone this repository into a folder next to your `prev` folder.
 
 To install Python dependencies, run `pip3 install -r requirements.txt`.
 
-**Note:** If pip3 is not installed, you can install it with `sudo apt install python3-pip`
+**Note:** If `pip3` is not installed, you can install it with `sudo apt install python3-pip`
 
 
 ## Usage
 
-The script accepts two arguments. The first one specifies the phase to test, the second one can be used to only run matching tests.
-
 ```
-./prevtest.py <PHASE> [<FILTER>]
+usage: prevtest.py [-h] [--verbose] [--no-build] PHASE [FILTER]
+
+positional arguments:
+  PHASE       Target phase
+  FILTER      Filter for test cases
+
+optional arguments:
+  -h, --help  show this help message and exit
+  --verbose   Verbose output
+  --no-build  Don't rebuild the compiler
 ```
 
 ## Contribution
