@@ -7,6 +7,7 @@ import sys
 import glob
 import subprocess
 import re
+import argparse
 
 import colorama
 from colorama import Fore
@@ -84,7 +85,8 @@ def run_test(phase, test, indent=0):
         return
     if not compile_ok and not fail_test:
         print_test_result(test, Fore.RED, "COMPILATION ERROR", indent)
-        print(output)
+        if args.verbose:
+            print(output)
         return
 
     # Check that XML is correct only in case it has actually compiled
@@ -94,11 +96,10 @@ def run_test(phase, test, indent=0):
             print_test_result(test, Fore.RED, "WRONG XML", indent)
             return
 
-    err_text = output.split(":-( ")[-1].replace(os.linesep, " ") if fail_test else ""
-
     # Every check passed
-    print_test_result(test, Fore.GREEN, "OK", indent, note=err_text)
-
+    err_text = output.split(":-( ")[-1].replace(os.linesep, " ") if fail_test else ""
+    note = err_text if args.verbose else ""
+    print_test_result(test, Fore.GREEN, "OK", indent, note=note)
 
 
 def natural_sort(arr):
@@ -106,6 +107,7 @@ def natural_sort(arr):
     alphanum_key = lambda key: [ convert(c) for c in re.split('([0-9]+)', key) ]
     arr.sort( key=alphanum_key )
     return arr
+
 
 def test_phase(phase, filt=None):
     print("---")
@@ -131,12 +133,23 @@ def build():
     print("Done!")
 
 
-build()
+"""
+Command line interface
+"""
+parser = argparse.ArgumentParser()
 
-phase = sys.argv[1]
-if len(sys.argv) > 2:
-    filt = sys.argv[2]
-else:
-    filt = None
+parser.add_argument("phase", metavar="PHASE", type=str, help="Target phase")
+parser.add_argument("filter", metavar="FILTER", type=str, nargs="?", help="Filter for test cases")
 
-test_phase(phase, filt)
+parser.add_argument("--verbose",  dest="verbose", action="store_true", help="Verbose output")
+parser.add_argument("--no-build", dest="build", action="store_false", help="Don't rebuild the compiler")
+
+args = parser.parse_args()
+
+"""
+Start
+"""
+if args.build:
+    build()
+
+test_phase(args.phase, args.filter)
