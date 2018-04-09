@@ -8,17 +8,18 @@ import glob
 import subprocess
 import re
 import argparse
-
 import colorama
+
 from colorama import Fore
 colorama.init()
 
+"""
+Constants
+"""
 PREV_HOME = os.path.abspath("../prev")
 TEST_HOME = os.path.abspath(os.curdir)
-
 OUT = TEST_HOME + "/out"
 SRCS = PREV_HOME + "/srcs"
-
 OK_MSG = ":-) This is PREV compiler:" + os.linesep + ":-) Done." + os.linesep
 
 
@@ -103,9 +104,14 @@ def run_test(phase, test, indent=0):
 
 
 def natural_sort(arr):
-    convert = lambda text: int(text) if text.isdigit() else text
-    alphanum_key = lambda key: [ convert(c) for c in re.split('([0-9]+)', key) ]
-    arr.sort( key=alphanum_key )
+
+    def convert(text):
+        return int(text) if text.isdigit() else text
+
+    def alphanum_key(key):
+        return [convert(c) for c in re.split('([0-9]+)', key)]
+
+    arr.sort(key=alphanum_key)
     return arr
 
 
@@ -114,7 +120,7 @@ def test_phase(phase, filt=None):
     print("Testing phase %s" % phase)
     for file in natural_sort(glob.glob("test_programs/%s/*.prev" % (phase))):
         test = basename(os.path.basename(file))
-        if (filt == None or filt in test):
+        if filt is None or filt in test:
             run_test(phase, test, indent=4)
 
 
