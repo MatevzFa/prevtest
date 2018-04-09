@@ -6,6 +6,7 @@ import os
 import sys
 import glob
 import subprocess
+import re
 
 import colorama
 from colorama import Fore
@@ -69,8 +70,8 @@ def test_should_fail(test):
     return "fail" in test.lower()
 
 
-def print_test_result(test, color, message, indent=0):
-    print(indent*" " + "%-25s %5s" % (test, color + message + Fore.RESET))
+def print_test_result(test, color, message, indent=0, note=""):
+    print(indent*" " + "%-25s %5s %s" % (test, color + message + Fore.RESET, note))
 
 
 def run_test(phase, test, indent=0):
@@ -93,14 +94,23 @@ def run_test(phase, test, indent=0):
             print_test_result(test, Fore.RED, "WRONG XML", indent)
             return
 
-    # Every check passed
-    print_test_result(test, Fore.GREEN, "OK", indent)
+    err_text = output.split(":-( ")[-1].replace(os.linesep, " ") if fail_test else ""
 
+    # Every check passed
+    print_test_result(test, Fore.GREEN, "OK", indent, note=err_text)
+
+
+
+def natural_sort(arr):
+    convert = lambda text: int(text) if text.isdigit() else text
+    alphanum_key = lambda key: [ convert(c) for c in re.split('([0-9]+)', key) ]
+    arr.sort( key=alphanum_key )
+    return arr
 
 def test_phase(phase, filt=None):
     print("---")
     print("Testing phase %s" % phase)
-    for file in sorted(glob.glob("test_programs/%s/*.prev" % (phase))):
+    for file in natural_sort(glob.glob("test_programs/%s/*.prev" % (phase))):
         test = basename(os.path.basename(file))
         if (filt == None or filt in test):
             run_test(phase, test, indent=4)
