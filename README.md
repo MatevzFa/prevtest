@@ -15,7 +15,7 @@ Clone this repository into a folder next to your `prev` folder.
 
 To install Python dependencies, run `pip3 install -r requirements.txt`.
 
-**Note:** If `pip3` is not installed, you can install it with `sudo apt install python3-pip`
+**Note:** If `pip3` is not installed, you can install it with `sudo apt install python3-pip`.
 
 
 ## Usage
