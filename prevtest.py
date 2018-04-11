@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+from xmlcompare import XmlTree
+
 import difflib
 import shutil
 import os
@@ -22,6 +24,8 @@ TEST_HOME = os.path.abspath(os.curdir)
 OUT = TEST_HOME + "/out"
 SRCS = PREV_HOME + "/srcs"
 OK_MSG = ":-) This is PREV compiler:" + os.linesep + ":-) Done." + os.linesep
+
+xmltree = XmlTree()
 
 
 def basename(path):
@@ -69,11 +73,9 @@ def compile_test(phase, test):
 
 
 def check_test(phase, test):
-    ref_file = open("test_programs/%s/%s.xml" % (phase, test), "r")
-    result_file = open("test_results/%s/%s.xml" % (phase, test), "r")
-    diff = difflib.ndiff(ref_file.readlines(), result_file.readlines())
-    diffs = list(filter(lambda line: line[0] == "-", diff))
-    return len(diffs) == 0
+    expected_xml_file = "test_programs/%s/%s.xml" % (phase, test)
+    xml_file = "test_results/%s/%s.xml" % (phase, test)
+    return xmltree.xml_files_compare(expected_xml_file, xml_file, excludes=["location", "loc"])
 
 
 def test_should_fail(test):
