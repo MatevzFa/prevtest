@@ -8,8 +8,9 @@ import glob
 import subprocess
 import re
 import argparse
-import colorama
+import time
 
+import colorama
 from colorama import Fore
 colorama.init()
 
@@ -35,8 +36,7 @@ def clean():
 
 
 def compile_test(phase, test):
-    if not os.path.exists("test_results/" + phase):
-        os.makedirs("test_results/" + phase)
+    os.makedirs("test_results/" + phase, exist_ok=True)
 
     if not os.path.isfile("test_results/%s/%s.xsl" % (phase, phase)):
         shutil.copy(
@@ -45,6 +45,10 @@ def compile_test(phase, test):
         )
 
     os.chdir(OUT)
+
+    if args.verbose:
+        print("Compiling test %s... " % test, end='')
+
     output = subprocess.check_output([
         "java",
         "compiler.Main",
@@ -54,6 +58,10 @@ def compile_test(phase, test):
         "--logged-phase=%s" % phase,
         "../%s/%s/%s.prev" % ("test_programs", phase, test)
     ], stderr=subprocess.STDOUT)
+
+    if args.verbose:
+        print("Done!")
+        print(output)
 
     os.chdir(TEST_HOME)
 
@@ -126,6 +134,7 @@ def test_phase(phase, filt=None):
 
 def build():
     print("Building the compiler... ", end='')
+    sys.stdout.flush()
     clean()
     os.mkdir(OUT)
     os.chdir(SRCS)
@@ -139,6 +148,26 @@ def build():
     print("Done!")
 
 
+def update_tests(phase):
+    print("Updating tests for phase %s... " % (phase), end='')
+    sys.stdout.flush()
+
+    os.makedirs("test_programs/" + phase, exist_ok=True)
+
+    for test_program in glob.glob("%s/test_programs/%s/%s_*.prev" % (PREV_HOME, phase, phase)):
+        test = basename(os.path.basename(test_program))
+        shutil.copy(test_program, "test_programs/" + phase)
+        compile_test(phase, test)
+        shutil.copy("test_results/%s/%s.xml" % (phase, test), "test_programs/" + phase)
+
+        # clean tmp test_results
+        shutil.rmtree("test_results/" + phase)
+        if not os.listdir("test_results"):
+            os.rmdir("test_results")
+
+    print("Done!")
+
+
 """
 Command line interface
 """
@@ -147,6 +176,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("phase", metavar="PHASE", type=str, help="Target phase")
 parser.add_argument("filter", metavar="FILTER", type=str, nargs="?", help="Filter for test cases")
 
+parser.add_argument("--update-tests",  dest="updatetests", action="store_true", help="Update tests for some phase")
 parser.add_argument("--verbose",  dest="verbose", action="store_true", help="Verbose output")
 parser.add_argument("--no-build", dest="build", action="store_false", help="Don't rebuild the compiler")
 
@@ -155,6 +185,9 @@ args = parser.parse_args()
 """
 Start
 """
+if args.updatetests:
+    update_tests(args.phase)
+
 if args.build:
     build()
 
