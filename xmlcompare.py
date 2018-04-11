@@ -82,8 +82,9 @@ class XmlTree():
     def xml_files_compare(self, f1, f2, excludes=[]):
         """
         Compare two xml files
-        :param t1: file one
-        :param t2: file two
+        :param f1: file one
+        :param f2: file two
+        :param excludes: list of string of attributes to exclude from comparison
         :return:
             True if a match
         """
