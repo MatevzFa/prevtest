@@ -21,16 +21,18 @@ To install Python dependencies, run `pip3 install -r requirements.txt`.
 ## Usage
 
 ```
-usage: prevtest.py [-h] [--verbose] [--no-build] PHASE [FILTER]
+usage: prevtest.py [-h] [--update-tests] [--verbose] [--no-build]
+                   PHASE [FILTER]
 
 positional arguments:
-  PHASE       Target phase
-  FILTER      Filter for test cases
+  PHASE           Target phase
+  FILTER          Filter for test cases
 
 optional arguments:
-  -h, --help  show this help message and exit
-  --verbose   Verbose output
-  --no-build  Don't rebuild the compiler
+  -h, --help      show this help message and exit
+  --update-tests  Update tests for some phase
+  --verbose       Verbose output
+  --no-build      Don't rebuild the compiler
 ```
 
 ## Contribution
