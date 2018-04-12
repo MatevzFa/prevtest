@@ -18,7 +18,8 @@
             : { none : a where var a: int }+b+c+d+e + x(123,f())
 
             where
-                var a: int; var b: int
+                var a: int;
+                var b: int
         };
         fun d(): int = 3
 }
