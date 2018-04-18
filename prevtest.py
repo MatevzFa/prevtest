@@ -21,7 +21,7 @@ Constants
 """
 PREV_HOME = os.path.abspath("../prev")
 TEST_HOME = os.path.abspath(os.curdir)
-OUT = TEST_HOME + "/out"
+BUILD_DIR = TEST_HOME + "/out"
 SRCS = PREV_HOME + "/srcs"
 OK_MSG = ":-) This is PREV compiler:" + os.linesep + ":-) Done." + os.linesep
 
@@ -34,7 +34,7 @@ def basename(path):
 
 def clean():
     try:
-        shutil.rmtree(OUT)
+        shutil.rmtree(BUILD_DIR)
     except FileNotFoundError:
         pass
 
@@ -48,7 +48,7 @@ def compile_test(phase, test):
             "test_results/%s/%s.xsl" % (phase, phase)
         )
 
-    os.chdir(OUT)
+    os.chdir(BUILD_DIR)
 
     if args.verbose:
         print("Compiling test %s... " % test, end='')
@@ -138,11 +138,11 @@ def build():
     print("Building the compiler... ", end='')
     sys.stdout.flush()
     clean()
-    os.mkdir(OUT)
+    os.mkdir(BUILD_DIR)
     os.chdir(SRCS)
     javac = subprocess.Popen([
         "javac",
-        "-d", os.path.relpath(OUT),
+        "-d", os.path.relpath(BUILD_DIR),
         "compiler/Main.java"
     ])
     javac.wait()
@@ -187,10 +187,11 @@ args = parser.parse_args()
 """
 Start
 """
+if args.build:
+    build()
+    
 if args.updatetests:
     update_tests(args.phase)
 
-if args.build:
-    build()
 
 test_phase(args.phase, args.filter)
