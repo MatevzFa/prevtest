@@ -1,0 +1,16 @@
+{ 
+    i = 3 : f(i)
+    where
+        var i: int;
+        fun f(a: int): int = {
+            [void] g();
+            [void] f(a);
+            [void] h()
+            
+            : 0
+            
+            where
+                fun g(): bool = true;
+                fun h(): int = [int] g() 
+        }
+}
