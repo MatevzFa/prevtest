@@ -1,14 +1,14 @@
 {
     a = x(213, 333);
-    a = g(123, 123, 123, 123, 123)
+    a = g(123, 123, 123, 123, 123) + asd[122].a.x.a
 
     : -d() + {
         none : 3
     }
 
     where
-
         var a: int;
+        var asd: arr[123] rec(a: rec(x: rec(a: int)));
 
         fun f(): int = 3;
         fun x(a: int, b: int): int = a * b + a * b + a * b;
