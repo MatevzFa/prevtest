@@ -189,7 +189,7 @@ Start
 """
 if args.build:
     build()
-    
+
 if args.updatetests:
     update_tests(args.phase)
 
