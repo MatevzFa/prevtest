@@ -1,0 +1,34 @@
+# Nested arrays
+{
+    result = {
+        c[2] = 1;
+        b[1] = 2;
+        a[2] = 111
+        : a[
+            { none : { none : b } }[
+                { none : { none : c } }[2]
+            ]
+        ]
+        where
+            var a: arr[3] int;
+            var b: arr[3] int;
+            var c: arr[3] int
+    };
+
+    assert(111, result)
+
+    : 0
+    where
+        var result: int;
+        fun assert(expected: int, actual: int): void = {
+            printint([int] (expected == actual));
+            println();
+            if expected != actual then
+                printint(actual);
+                println()
+            end
+            : none
+        };
+        fun printint(i: int): void;
+        fun println(): void
+}

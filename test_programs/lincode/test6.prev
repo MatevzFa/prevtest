@@ -1,0 +1,36 @@
+# If
+{
+    result = {
+        a = 2;
+        if { none : { none : { none : foo(a) } } } == 6 then
+            a = 19
+        else
+            a = -1
+        end
+        : a
+        where
+            var a: int;
+            fun foo(a: int): int = {
+                b = 3
+                : a * b
+                where var b: int
+            }
+    };
+
+    assert(19, result)
+
+    : 0
+    where
+        var result: int;
+        fun assert(expected: int, actual: int): void = {
+            printint([int] (expected == actual));
+            println();
+            if expected != actual then
+                printint(actual);
+                println()
+            end
+            : none
+        };
+        fun printint(i: int): void;
+        fun println(): void
+}
