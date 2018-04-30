@@ -1,0 +1,40 @@
+# Nested SEXPR as args
+{
+    result = {
+        none
+        : foo(foo(foo(foo(1)))) + foo(
+                {
+                    a = 1
+                    : {
+                        b = 2
+                        : {
+                            c = 3
+                            : c
+                            where var c: int
+                        }
+                        where var b: int
+                    }
+                    where var a: int
+                }
+            )
+        where
+            fun foo(a: int): int = 1
+    };
+
+    assert(2, result)
+
+    : 0
+    where
+        var result: int;
+        fun assert(expected: int, actual: int): void = {
+            printint([int] (expected == actual));
+            println();
+            if expected != actual then
+                printint(actual);
+                println()
+            end
+            : none
+        };
+        fun printint(i: int): void;
+        fun println(): void
+}

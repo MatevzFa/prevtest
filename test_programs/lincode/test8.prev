@@ -1,0 +1,32 @@
+# Components
+{
+    result = {
+        r.A = 2;
+        r.a.B = 3;
+        r.a.b.C = 4;
+        r.a.b.c = 5
+        : r.a.b.c * r.A * r.a.B * r.a.b.C
+        where
+            var r: R;
+            typ R: rec(A: int, a: K);
+            typ K: rec(B: int, b: L);
+            typ L: rec(C: int, c: int)
+    };
+
+    assert(120, result)
+
+    : 0
+    where
+        var result: int;
+        fun assert(expected: int, actual: int): void = {
+            printint([int] (expected == actual));
+            println();
+            if expected != actual then
+                printint(actual);
+                println()
+            end
+            : none
+        };
+        fun printint(i: int): void;
+        fun println(): void
+}
