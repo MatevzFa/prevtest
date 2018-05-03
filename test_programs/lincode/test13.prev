@@ -1,0 +1,25 @@
+# Sequenced binops
+{
+    dirtied = 1;
+    result = --(--{ dirtied = 2 : dirty() }) + dirtied;
+
+    assert(20, result)
+
+    : 0
+    where
+        var dirtied: int;
+        fun dirty(): int = { dirtied = 10 * dirtied : 0 };
+
+        var result: int;
+        fun assert(expected: int, actual: int): void = {
+            printint([int] (expected == actual));
+            println();
+            if expected != actual then
+                printint(actual);
+                println()
+            end
+            : none
+        };
+        fun printint(i: int): void;
+        fun println(): void
+}
