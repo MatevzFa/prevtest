@@ -156,9 +156,11 @@ def update_tests(phase):
 
     os.makedirs("test_programs/" + phase, exist_ok=True)
 
-    for test_program in glob.glob("%s/test_programs/%s/%s_*.prev" % (PREV_HOME, phase, phase)):
+    for test_program in glob.glob("%s/test_programs/%s/*.prev" % (TEST_HOME, phase)):
         test = basename(os.path.basename(test_program))
-        shutil.copy(test_program, "test_programs/" + phase)
+        if "fail" in test:
+            continue
+
         compile_test(phase, test)
         shutil.copy("test_results/%s/%s.xml" % (phase, test), "test_programs/" + phase)
 
@@ -189,7 +191,7 @@ Start
 """
 if args.build:
     build()
-    
+
 if args.updatetests:
     update_tests(args.phase)
 
