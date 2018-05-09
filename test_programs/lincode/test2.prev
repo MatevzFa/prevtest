@@ -1,0 +1,37 @@
+# Nested binops
+{
+    result = 1 + {
+        a = 1
+        : a + {
+            b = 2
+            : b + {
+                c = 3
+                : c + {
+                    d = 4
+                    : d
+                    where var d: int
+                }
+                where var c: int
+            }
+            where var b:int
+        }
+        where var a: int
+    };
+
+    assert(11, result)
+
+    : 0
+    where
+        var result: int;
+        fun assert(expected: int, actual: int): void = {
+            printint([int] (expected == actual));
+            println();
+            if expected != actual then
+                printint(actual);
+                println()
+            end
+            : none
+        };
+        fun printint(i: int): void;
+        fun println(): void
+}

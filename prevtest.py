@@ -24,6 +24,7 @@ TEST_HOME = os.path.abspath(os.curdir)
 BUILD_DIR = TEST_HOME + "/out"
 SRCS = PREV_HOME + "/srcs"
 OK_MSG = ":-) This is PREV compiler:" + os.linesep + ":-) Done." + os.linesep
+OK_MSG_INTERPRETER = ":-) This is PREV compiler:" + os.linesep + "1" + os.linesep + ":-) Done." + os.linesep
 
 xmltree = XmlTree()
 
@@ -88,7 +89,7 @@ def print_test_result(test, color, message, indent=0, note=""):
 
 def run_test(phase, test, indent=0):
     output = compile_test(phase, test).decode("unicode_escape")
-    compile_ok = output == OK_MSG
+    compile_ok = output == OK_MSG or output == OK_MSG_INTERPRETER
     fail_test = test_should_fail(test)
 
     if compile_ok and fail_test:

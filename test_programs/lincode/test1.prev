@@ -1,0 +1,24 @@
+# Sequenced binops
+{
+    result = { b = 1 : b where var b: int } +
+        { a = 2 : a where var a: int } +
+        { c = 3 : c where var c: int } +
+        { d = 3 : d where var d: int };
+
+    assert(9, result)
+
+    : 0
+    where
+        var result: int;
+        fun assert(expected: int, actual: int): void = {
+            printint([int] (expected == actual));
+            println();
+            if expected != actual then
+                printint(actual);
+                println()
+            end
+            : none
+        };
+        fun printint(i: int): void;
+        fun println(): void
+}
