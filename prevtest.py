@@ -196,5 +196,8 @@ if args.build:
 if args.updatetests:
     update_tests(args.phase)
 
-
-test_phase(args.phase, args.filter)
+if args.phase == "all":
+    for phase in ["lexan", "abstr", "seman", "frames", "imcgen"]:
+        test_phase(phase)
+else:
+    test_phase(args.phase, args.filter)
