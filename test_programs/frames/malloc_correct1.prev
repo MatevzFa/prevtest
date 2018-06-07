@@ -1,0 +1,8 @@
+{
+    [void] wrapper()
+
+    : 0
+
+    where
+        fun wrapper(): ptr int = new int
+}

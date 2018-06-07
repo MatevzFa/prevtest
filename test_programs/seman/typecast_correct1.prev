@@ -1,0 +1,25 @@
+{
+	[void] (
+		[int] 1 	+
+		[int] 'A' 	+
+		[int] true	+
+		[int] false
+	);
+
+	a_int = [ptr int] voidptr;
+	a_char = [ptr char] voidptr;
+	a_bool = [ptr bool] voidptr;
+	record = [ptr rec(a: int)] voidptr;
+	array = [ptr arr[5] int] voidptr
+
+	: 1
+
+	where
+		var a_int: ptr int;
+		var a_char: ptr char;
+		var a_bool: ptr bool;
+		var record: ptr rec(a: int);
+		var array: ptr arr[5] int;
+
+		var voidptr: ptr void
+}
