@@ -4,6 +4,11 @@
 
 # PREVTEST
 
+This repository contains test cases for the course on compilers for year 2018/19.
+Snapshots for previous years can be found in respective branches of this repository:
+
+- [2017/18](/MatevzFa/prevtest/tree/prev-2017/18)
+
 ## Installation
 
 Clone this repository into a folder next to your `prev` folder.
@@ -40,3 +45,8 @@ optional arguments:
 If you want your tests added to this repository, make a pull request with your tests in an appropriate folder (see current structure).
 
 Feel free to change (or completely rewrite :sweat_smile: ) the [program](prevtest.py).
+
+### Contributors
+
+- [Jakob Erzar](https://github.com/jakoberzar/)
+- [Rok Kos](https://github.com/RokKos)
