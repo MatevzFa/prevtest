@@ -1,0 +1,4 @@
+# test precedence of operators |,*,+,==, order and element/component access - pass
+fun a(): bool = {
+  none; : 1 | 2 * 3 + 3 == (a.b : int) + c[1]
+};
