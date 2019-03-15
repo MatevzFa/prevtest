@@ -1,5 +1,5 @@
-{
-    a=1
+fun test () : void = {
+    a=1;
     :
     a.int
-} 
+};

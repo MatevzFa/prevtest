@@ -1,1 +1,4 @@
-a+g*3-2|hg^23++++!b<=1+new int/$12
+fun test () : void = {
+    a+g*3-2|hg^23+++!b<=1+new (int) / $12;
+    : 1
+};

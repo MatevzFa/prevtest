@@ -1,11 +1,11 @@
-{
-    none
-    :
-    none
-    where
-        # type expected
-        #var a::some_type
+fun test () : void = {
+   none;
+   :
+   none
+   where
+       # type expected
+       #var a::some_type;
 
-        # identifier expected
-        var arr:some_type
-}
+       # identifier expected
+       var arr:some_type;
+};

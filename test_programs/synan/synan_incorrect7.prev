@@ -1,9 +1,9 @@
-{
-    a
+fun test () : void = {
+    a;
 
     : a
 
     where
         # missing return type
-        fun a(a: int, b: int) = a
-}
+        fun a(a: int, b: int) = a;
+};

@@ -1,5 +1,5 @@
-{
-    none
+fun test () : void = {
+    none;
     :
     none
     where
@@ -16,5 +16,5 @@
                     g:ptr bool,
                     h:another_custom_type_name);
         fun c(array:arr [10] int, record: rec(x:int, y:int)):int =1+1;
-        fun d(arg1:void, arg2:ptr void):void
-}
+        fun d(arg1:void, arg2:ptr void):void;
+};

@@ -1,22 +1,18 @@
-{
-    # expr expected
-    #while :
-    
-    # do expected
-    #while a == 3 ;
-    
-    # stmts expected
-    #while a == 3 do ;
-    
-    # stmt expected
-    #while a == 3 do
-        a = 1;
-        a = 2;
-        a = 3;
-    
-    # end expected
-    while a == 3 do
-        a = 1;
-        a = 2;
-        a = 3
-}
+fun test () : void = {
+   # expr expected
+   #while :
+
+   # do expected
+   #while a == 3 ;
+
+   # stmts expected
+   #while a == 3 do ;
+
+   # end expected
+   while a == 3 do
+       a = 1;
+       a = 2;
+       a = 3;
+
+   : 1
+};

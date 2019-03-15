@@ -1,10 +1,10 @@
-{
+fun test () : void = {
     # expr expected
     #if arr
-    
+
     # then expected
-    #if a=1 
-    
+    #if a=1
+
     # stmt expected
     #if a==1 then ;
 
@@ -12,8 +12,10 @@
     #if a==1 then a=1 :
 
     # same with several stmts
-    #if a==1 then a=1; b=2; c=3 :
-    
-    # end expected 
-    if a==1 then a=1; b=2; c=3 else null
-}
+    #if a==1 then a=1; b=2; c=3;
+
+    # end expected
+    if a==1 then a=1; b=2; c=3; else null;
+
+    : 1
+};

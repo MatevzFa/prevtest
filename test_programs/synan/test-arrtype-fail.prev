@@ -1,17 +1,17 @@
-{
-    none
+fun test () : void = {
+    none;
     :
     none
     where
         # lbracket expected
         #var a:arr {10} int;
-        
+
         # expression expected
         #var a:arr [:} int;
-        
+
         # rbracket expected
         #var a:arr [10} int;
-        
+
         # type expected
         var a:arr [10] =blabla;
-}
+};

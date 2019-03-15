@@ -1,3 +1,6 @@
-# test non-associativity of comparators - fail
-# [2.27--2.28] Unexpected '>=' (GEQ): Not suitable symbol.
-{ if [int]a | 2 == b[1|2] >= 2 then -1 end : none }
+fun test () : void = {
+   # test non-associativity of comparators - fail
+   # [4.33--4.34] Unexpected '>=' (GEQ): Not suitable symbol.
+   { if (a : int) | 2 == b[1|2] >= 2 then -1; end; : none };
+   : 1
+};

@@ -1,8 +1,8 @@
-{
-    none
-    :
-    none
-    where
-        # type expected
-        var a:ptr {
-}
+fun test () : void = {
+   none;
+   :
+   none
+   where
+       # type expected
+       var a:ptr {
+};

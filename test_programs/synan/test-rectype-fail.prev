@@ -1,17 +1,17 @@
-{
-    none
-    :
-    none
-    where
-        # ( expected
-        #var a:rec[
-        
-        # identifier expected
-        #var a:rec(int
-        
-        # , or ) expected
-        #var a:rec(a:int;
-        
-        # , or ) expected
-        var a:rec(a:int, b:int;
-}
+fun test () : void = {
+   none;
+   :
+   none
+   where
+       # ( expected
+       #var a:rec[
+
+       # identifier expected
+       #var a:rec(int
+
+       # , or ) expected
+       #var a:rec(a:int;
+
+       # , or ) expected
+       var a:rec(a:int, b:int;
+};
