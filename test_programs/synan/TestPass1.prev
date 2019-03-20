@@ -1,2 +1,5 @@
-# test precedence of operators |,*,+,==, order and element/component access - pass
-1 | 2 * 3 + 3 == [int]a.b + c[1]
+fun test () : void = {
+    # test precedence of operators |,*,+,==, order and element/component access - pass
+    1 | 2 * 3 + 3 == (a.b : int) + c[1];
+    : none
+};

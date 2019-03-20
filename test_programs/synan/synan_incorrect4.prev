@@ -1,6 +1,6 @@
-{
-    a == b # no semicolon ==> end the statements part of a compound expression
-    a = 3  # but there's another expression
+fun test () : void = {
+    a == b # no semicolon
+    a = 3;
 
     : (a + b) == 12
-}
+};

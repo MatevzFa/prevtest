@@ -1,2 +1,2 @@
-# not an expression
-var myid: void;
+# not a declaration
+a = a + 1;

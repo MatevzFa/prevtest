@@ -1,2 +1,4 @@
 # declaration is not an expresion
-var test : int
+fun test () : void = {
+    var test : int;
+};

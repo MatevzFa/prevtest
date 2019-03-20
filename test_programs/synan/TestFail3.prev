@@ -1,2 +1,8 @@
-# [3.34--3.35] statement instead of expressions - fail
-{while bea do something(true); {(if a then b else true end) : none} end : false}
+fun test () : void = {
+    # [5.11--5.12] statement instead of expression - fail
+    while bea do
+        something(true);
+        {(if a then b; else true; end;) : none};
+    end;
+    : none
+};

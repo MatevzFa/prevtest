@@ -1,10 +1,10 @@
-{
+fun test () : void = {
     1+2=123;
-    a=22
+    a=22;
     :
     a==(((((-2+(22))))))
     where
     typ a : char;
     fun abc(a:int, _ab:arr[2] bool) : int = 1+2;
-    var abc : rec(a:char, d: ptr ptr ptr int)
-}
+    var abc : rec(a:char, d: ptr ptr ptr int);
+};

@@ -1,2 +1,5 @@
-# expression expected
-!
+fun test () : void = {
+   # expression expected
+   !
+   : 1
+};

@@ -1,7 +1,7 @@
-{
+fun test () : void = {
     a == b;
     a = 3;
-    b = 6; # semicolon after the last statement (another statement expected)
+    b = 6 # missing semicolon after the last statement
 
     : (a + b) == 12
-}
+};

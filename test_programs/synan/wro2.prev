@@ -1,8 +1,8 @@
-{
+fun test () : void = {
     if (a==a) then
-        a+a
+        a+a;
     else
-    end
+    end;
     :
     a
-} 
+};

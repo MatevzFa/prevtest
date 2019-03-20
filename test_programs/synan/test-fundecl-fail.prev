@@ -1,13 +1,13 @@
-{
-    none
+fun test () : void = {
+    none;
     :
     none
     where
         # identifier expected
-        fun int(arg1:int, arg2:ptr int):int =1
-        
+        #fun int(arg1:int, arg2:ptr int):int =1
+
         # lparen expcted
-        fun ints:(arg1:int, arg2:ptr int):int =1
+        #fun ints:(arg1:int, arg2:ptr int):int =1
 
         # comma or rparen expected
         #fun ints(arg1:int; arg2:ptr int):int =1
@@ -16,5 +16,5 @@
         #fun ints(arg1:int, arg2:ptr int){int =1
 
         # expr expected
-        #fun ints(arg1:int, arg2:ptr int):int =+
-}
+        fun ints(arg1:int, arg2:ptr int):int =+
+};

@@ -1,6 +1,6 @@
-{
+fun test () : void = {
     # expr expected
-    a = 
+    a =
     :
     none
-}
+};

@@ -1,5 +1,9 @@
-# expression expected
-#(:
+fun test () : void = {
+   # expression expected
+   #(:
 
-# ) expected
-(10
+   # ) expected
+   (10
+
+    : 1
+};

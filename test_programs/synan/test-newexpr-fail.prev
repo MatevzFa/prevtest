@@ -1,2 +1,6 @@
-# type expected
-new 10
+fun test () : void = {
+   # type expected
+   new (10);
+
+    : 1
+};

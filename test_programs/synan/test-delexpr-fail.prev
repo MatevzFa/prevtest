@@ -1,2 +1,5 @@
-# expression expected
-del int
+fun test () : void = {
+    # expression expected
+    del (int);
+    : 1
+};

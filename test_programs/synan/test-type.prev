@@ -1,16 +1,16 @@
-{
-    none
-    :
-    none
-    where
-        var a:int;
-        var b:bool;
-        var c:char;
-        var d:int;
-        var e:arr [10] int;
-        var f:rec(x:int, y:int);
-        var g:ptr int;
-        var h:my_own_type;
+fun test () : void = {
+   none;
+   :
+   none
+   where
+       var a:int;
+       var b:bool;
+       var c:char;
+       var d:int;
+       var e:arr [10] int;
+       var f:rec(x:int, y:int);
+       var g:ptr int;
+       var h:my_own_type;
 
-        var horribly_nested:arr[10]rec(array:arr[10]rec(record:rec(vec2:rec(x:int, y:int), vec3:rec(x:int, y:int, z:int)), name:arr[10] char), another:rec(val:int, val2: bool))
-}
+       var horribly_nested:arr[10]rec(array:arr[10]rec(record:rec(vec2:rec(x:int, y:int), vec3:rec(x:int, y:int, z:int)), name:arr[10] char), another:rec(val:int, val2: bool));
+};

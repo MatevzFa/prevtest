@@ -1,24 +1,24 @@
-{   
+fun test() : void = {
     x = none;
     a == b;
     a = 3;
     b = 6;
-    c = [char] b.keycode[0];
+    c = ( b.keycode[0] : char );
 
-    name = new arr[256] char;
+    name = new (arr[256] char);
 
-    tmpVal = new void;
+    tmpVal = new (void);
     $tmpVal = @c;
-    del tmpVal;
+    del (tmpVal);
 
     c = strcmp(c, c+123 == 0);
 
     cond = a < b;
-    if (!![bool]!!cond) then
+    if (!!(!!cond : bool)) then
         while a <= b do
-            a = a + 1
-        end
-    end
+            a = a + 1;
+        end;
+    end;
 
     : (a + b) == 12
 
@@ -36,18 +36,18 @@
             i = 0;
             same = true;
             while s1[i] == s2[i] & i < 256 do
-                i = i + 1
+                i = i + 1;
             end;
 
             if i < 256 then
-                same = false
-            end
+                same = false;
+            end;
 
             : same
 
             where
                 var i: int;
-                var same: bool
+                var same: bool;
 
-        }
-}
+        };
+};

@@ -1,8 +1,6 @@
-{
-    arr = new arr[a] int
-
+fun test () : void = {
+    arr = new (arr[a] int);
     : (a + b) == 12
-
     where
-        var arr: arr[a] int
-}
+    var arr: arr[a] int;
+};

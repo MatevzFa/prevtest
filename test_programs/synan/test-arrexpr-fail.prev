@@ -1,5 +1,8 @@
-# expression expected
-#a[}
+fun test () : void = {
+    # expression expected
+    #a[}
 
-# ]  expected
-a[10}
+    # ]  expected
+    a[10}
+    : a
+};
