@@ -1,0 +1,9 @@
+fun b(): void = {
+    a;
+    : a
+
+    where
+
+        fun a(s1: string, s2: string): int;
+        fun b(): void = 0;
+};
