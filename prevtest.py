@@ -103,10 +103,15 @@ def run_test(phase, test, indent=0):
 
     # Check that XML is correct only in case it has actually compiled
     if compile_ok:
-        correct_xml = check_test(phase, test)
-        if not correct_xml:
-            print_test_result(test, Fore.RED, "WRONG XML", indent)
+        try:
+            correct_xml = check_test(phase, test)
+            if not correct_xml:
+                print_test_result(test, Fore.RED, "WRONG XML", indent)
+                return
+        except FileNotFoundError:
+            print_test_result(test, Fore.GREEN, "COMPILED, NO RESULT FILE", indent)
             return
+    
 
     # Every check passed
     err_text = output.split(":-( ")[-1].replace(os.linesep, " ") if fail_test else ""
