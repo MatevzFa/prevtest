@@ -76,11 +76,17 @@ def compile_test(phase, test):
 def check_test(phase, test):
     expected_xml_file = "test_programs/%s/%s.xml" % (phase, test)
     xml_file = "test_results/%s/%s.xml" % (phase, test)
-    return xmltree.xml_files_compare(expected_xml_file, xml_file, excludes=["location", "loc"])
+
+    try:
+        # check if expected xml file exists
+        st = os.stat(expected_xml_file)
+        return xmltree.xml_files_compare(expected_xml_file, xml_file, excludes=["location", "loc"])
+    except os.error:
+        return None
 
 
 def test_should_fail(test):
-    return "fail" in test.lower()
+    return "fail" in test.lower() or "incorrect" in test.lower()
 
 
 def print_test_result(test, color, message, indent=0, note=""):
@@ -104,7 +110,10 @@ def run_test(phase, test, indent=0):
     # Check that XML is correct only in case it has actually compiled
     if compile_ok:
         correct_xml = check_test(phase, test)
-        if not correct_xml:
+        if correct_xml is None:
+            print_test_result(test, Fore.GREEN, "COMPILED OK, BUT NO RESULT FILE", indent)
+            return
+        elif not correct_xml:
             print_test_result(test, Fore.RED, "WRONG XML", indent)
             return
 
