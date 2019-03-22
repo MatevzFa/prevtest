@@ -1,4 +1,4 @@
-fun test() : void = {
+fun b(): void = {
     funccall(({
         a+b;
         : 0 where var a: char;
@@ -12,5 +12,6 @@ fun test() : void = {
         a+b;
         : 0 where var a: int;
     }), arg2, arg3, arg4);
-    : 1
+    
+    : 0
 };

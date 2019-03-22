@@ -1,20 +1,24 @@
-# stmts expected
-#{}
+fun test () : void = {
+    # stmts expected
+    #{}
 
-# another statement or : expected
-#{ null
+    # another statement or : expected
+    #{ null;
 
-# another statement expected
-#{ null = null; a = 1;
+    # } expected
+    #{ null = null; a = 1;
 
-# expression expected
-#{ null : ]
+    # expression expected
+    #{ null; : ]
 
-# where or } expected
-#{ null : 1 :
+    # where or } expected
+    #{ null; : 1 :
 
-# declaration expected
-#{ null : 1 where }
+    # declaration expected
+    #{ null; : 1 where }
 
-# declaration expected
-{ null : 1 where var a:int;}
+    # ; expected
+    { null; : 1 where var a:int;}
+
+    : 1
+};

@@ -1,0 +1,9 @@
+fun test () : void = {
+    if (a==a) then
+        a+a;
+    end;
+    :
+    a
+    where
+    typ abc : arr[int];
+};

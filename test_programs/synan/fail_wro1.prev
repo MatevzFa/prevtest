@@ -1,0 +1,5 @@
+fun test () : void = {
+    a=1;
+    :
+    a.int
+};

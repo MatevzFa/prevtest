@@ -1,2 +1,5 @@
-# identifier expected
-a.rec
+fun test () : void = {
+   # identifier expected
+   a.rec
+   : 1
+};

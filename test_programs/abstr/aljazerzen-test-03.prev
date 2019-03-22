@@ -1,9 +1,9 @@
-fun test() : void = {
+fun a(): void = {   
     x = none;
     a == b;
     a = 3;
     b = 6;
-    c = ( b.keycode[0] : char );
+    c = (b.keycode[0] : char);
 
     name = new (arr[256] char);
 
@@ -14,7 +14,7 @@ fun test() : void = {
     c = strcmp(c, c+123 == 0);
 
     cond = a < b;
-    if (!!(!!cond : bool)) then
+    if (!!(!!cond:bool)) then
         while a <= b do
             a = a + 1;
         end;

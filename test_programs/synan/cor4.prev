@@ -1,11 +1,14 @@
-{
-    if (a==a) then
-        a+a
-    end
-    :
-    a
-    where 
-    typ abc : arr[{    a=1
-                    :
-                    a}] void
-} 
+fun test () : void = {
+    {
+        if (a==a) then
+            a+a;
+        end;
+        :
+        a
+        where
+        typ abc : arr[{    a=1;
+                        :
+                        a}] void;
+    };
+    : 1
+};

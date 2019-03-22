@@ -1,9 +1,9 @@
-{
-    a
-    : a
+fun test() : void = {
+    a;
+        : a
 
-    where
+        where
 
-        fun a(s1: string, s2: string): int;
-        fun b(): void = 0
-}
+            fun a(s1: string, s2: string): int;
+            fun b(): void = 0;
+};

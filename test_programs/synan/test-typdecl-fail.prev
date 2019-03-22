@@ -1,11 +1,11 @@
-{
-    none
-    :
-    none
-    where
-        # identifier expected
-        #typ int:int
-        
-        # type expected
-        typ integer:[]
-}
+fun test () : void = {
+   none;
+   :
+   none
+   where
+       # identifier expected
+       #typ int:int
+
+       # type expected
+       typ integer:[]
+};

@@ -1,8 +1,12 @@
-# ) or expression expected
-#f(:)
+fun test () : void = {
+    # ) or expression expected
+    #f(:)
 
-# expression expected
-#f(a, b, }
+    # expression expected
+    #f(a, b, }
 
-# , or ) expected
-f(a, b }
+    # , or ) expected
+    f(a, b }
+
+    : 1
+};

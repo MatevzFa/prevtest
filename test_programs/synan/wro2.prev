@@ -1,8 +1,0 @@
-{
-    if (a==a) then
-        a+a
-    else
-    end
-    :
-    a
-} 

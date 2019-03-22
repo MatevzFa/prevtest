@@ -1,8 +1,12 @@
-# type expected
-#[10
+fun test () : void = {
+    # type expected
+    #(10 : );
 
-# ] expected
-#[int}
+    # ) expected
+    (10:int};
 
-# expression expected
-[int] }
+    # expression expected
+    (:int);
+    :
+    none
+};
